@@ -1,5 +1,6 @@
 - name: Create Homework Assignment project
-
+  debug:
+    msg: " Starting Tower Post Configuration "
 
 - name: Machine Credentail to connect to workstation using openstack.pub
   tower_credential:
