@@ -1,4 +1,4 @@
 ---
 # tasks file for roles/osp-servers
+- include_tasks: osp_instance_create.yml
 - include_tasks: 
-- include_tasks:
