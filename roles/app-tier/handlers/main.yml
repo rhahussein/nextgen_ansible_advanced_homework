@@ -2,7 +2,7 @@
 - name: start {{ payload }}
   service:
     name: "{{ payload }}"
-    state: started
+    state: restarted
     
 - name: enable {{ payload }}
   service:
