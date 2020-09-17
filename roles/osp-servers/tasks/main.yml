@@ -8,12 +8,12 @@
     image:            "{{ __openstack_server.image                  | default('rhel-guest') }}"
     flavor:           "{{ __openstack_server.flavor                 | default('m1.medium') }}"
     key_name:         "{{ __openstack_server.key_name               | default('ansible_ssh') }}"
-    wait:             "{{ __openstack_server.wait                   | default('yes') }}"
+    wait: no            
     security_groups:  "{{ __openstack_server.security_group_name }}"
-    delete_fip:       "{{__openstack_server.delete_fip              | default(true) }}"
+    auto_ip: no
+    delete_fip: yes
     meta: "group={{ __openstack_server.group }},deployment_name={{ __openstack_server.deployment }}"
-    nics:
-      - net-name: int_network
+    network: int_network
     userdata: |
       #!/bin/bash
       curl -o /tmp/openstack.pub http://www.opentlc.com/download/ansible_bootcamp/openstack_keys/openstack.pub
