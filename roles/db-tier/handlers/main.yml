@@ -1,5 +1,15 @@
 ---
-- name: restart_postgres
+- name: start {{ postgres_service }}
+  service:
+    name: "{{ postgres_service }}"
+    state: started
+
+- name: restart {{ postgres_service }}
   service:
     name: "{{ postgres_service }}"
     state: restarted
+
+- name: enable {{ postgres_service }}
+  service:
+    name: "{{ postgres_service }}"
+    enabled: yes
