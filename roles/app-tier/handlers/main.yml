@@ -1,10 +1,5 @@
 ---
-- name: start {{ payload }}
+- name: restart {{ payload }}
   service:
     name: "{{ payload }}"
     state: restarted
-    
-- name: enable {{ payload }}
-  service:
-    name: "{{ payload }}"
-    enabled: yes
