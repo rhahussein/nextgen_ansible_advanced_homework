@@ -17,6 +17,7 @@
 - name: install base tools and packages
   yum:
     name:
+      - httpie
       - python-pip
       - vim
     state: latest
