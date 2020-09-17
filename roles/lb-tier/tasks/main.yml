@@ -1,8 +1,14 @@
 ---
+# Tasks for lb-tier role
+
 - name: install {{ payload }}
   yum:
     name: "{{ payload }}"
     state: latest
+  notify:
+    - start {{ payload }}
+    - enable {{ payload }}
+    
 - name: configure haproxy to load balance over app servers
   template:
     src: haproxy.cfg.j2
@@ -10,6 +16,4 @@
     mode: 0644
   notify:
     - restart {{ payload }}
-    - enable {{ payload }}
-
 
