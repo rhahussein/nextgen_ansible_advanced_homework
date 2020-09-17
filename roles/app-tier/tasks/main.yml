@@ -5,10 +5,6 @@
     name: "{{ payload }}"
     state: latest
 
-- name: enable {{ payload }} at boot
-  service:
-    name: "{{ payload }}"
-    enabled: yes
 
 - name: create tomcat default web directory
   file:
