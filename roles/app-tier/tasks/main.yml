@@ -10,6 +10,9 @@
   file:
     path: "{{ tomcat_web_root }}"
     state: directory
+  notify:
+    - start {{ payload }}
+    - enable {{ payload }}
 
 - name: copy static index.html to tomcat webroot
   template:
@@ -17,5 +20,4 @@
     dest: "{{ tomcat_web_root }}/index.html"
     mode: 0644
   notify:
-    - start {{ payload }}
-    - enable {{ payload }}
+    - restart {{ payload }}
