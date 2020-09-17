@@ -1,7 +1,11 @@
 ---
-
 - name: start {{ payload }}
   service:
     name: tomcat
     state: started
+
+- name: enable {{ payload }}
+  service:
+    name: tomcat
+    state: enabled
 
