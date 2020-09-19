@@ -22,3 +22,4 @@ postgres_users:
     database: example_db
     state: present
     priv: ALL
+    
