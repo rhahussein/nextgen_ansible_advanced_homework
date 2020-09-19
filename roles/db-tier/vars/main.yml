@@ -13,7 +13,7 @@ postgres_10_bin_path: /usr/pgsql-10/bin
 postgres_service: postgresql-10.service
 postgres_port: 5432
 postgres_user: postgres
-postgresql_databases:
+postgres_databases:
   - name: example_db
     owner: example_user
 postgresql_users:
