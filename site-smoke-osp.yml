@@ -1,13 +1,22 @@
 - hosts: workstation
   gather_facts: false
-  roles:
-  - name: osp-facts
-
-  post_tasks:
-  - name: OpenStack servers
-  - name: Curl website
-    tags:
-      - packages
+  tasks:
+  - name: get info for frontend server on Openstack cloud
+    os_server_info:
+    cloud: openstack
+    server: frontend
+    filters:
+      vm_state: active
+  register: r_instances
+  
+  - name: Check website connectivity via haproxy
+    uri:
+      url: "http://{{frontend}}"
+      return_content: yes
+      status_code: 200
+    register: webpage
+        
+  - debug: var=webpage.content
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
