@@ -1,8 +1,13 @@
 - hosts: workstation
   gather_facts: false
-  tasks:
+  roles:
+  - name: osp-facts
+
+  post_tasks:
   - name: OpenStack servers
   - name: Curl website
+    tags:
+      - packages
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
