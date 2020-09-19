@@ -15,6 +15,10 @@ postgres_port: 5432
 postgres_user: postgres
 postgresql_databases:
   - name: example_db
+    owner: example_user
 postgresql_users:
   - name: example_user
     password: supersecure
+    database: example_db
+    state: present
+    priv: ALL
